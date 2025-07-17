@@ -24,13 +24,15 @@ export default function SocialFeed() {
   };
 
   return (
-    <Card className="bg-dark-surface border-brand-gold-dark h-full">
+    <Card className="glass-card-brown border-0 h-full">
       <CardHeader>
-        <CardTitle className="text-lg font-semibold text-brand-gold flex items-center">
-          <Newspaper className="mr-2 h-5 w-5" />
-          Simulated Social Feed
+        <CardTitle className="text-heading text-xl text-sfs-gold flex items-center">
+          <Newspaper className="mr-3 h-6 w-6" />
+          Live Social Feed
           <div className="ml-auto">
-            <Badge className="text-xs bg-brand-gold text-brand-black">Live Simulation</Badge>
+            <Badge className="bg-sfs-gold/20 text-sfs-gold border-sfs-gold/30 animate-pulse">
+              Live Simulation
+            </Badge>
           </div>
         </CardTitle>
       </CardHeader>
@@ -43,11 +45,11 @@ export default function SocialFeed() {
             ))}
           </div>
         ) : (
-          <div className="space-y-4 overflow-y-auto max-h-96">
+          <div className="space-y-6 overflow-y-auto max-h-96">
             {posts.map((post) => (
               <div key={post.id}>
                 {/* Main Post */}
-                <div className="bg-brand-brown rounded-lg p-4 border border-brand-gold-dark">
+                <div className="bg-sfs-brown-card rounded-xl p-5 border border-sfs-gold/20 hover:border-sfs-gold/40 transition-all duration-200">
                   <div className="flex items-center space-x-3 mb-3">
                     <img 
                       src={post.authorAvatar || "https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?ixlib=rb-4.0.3&auto=format&fit=crop&w=150&h=150"} 
@@ -59,31 +61,31 @@ export default function SocialFeed() {
                       }}
                     />
                     <div>
-                      <h4 className="font-medium text-brand-gold">{post.author}</h4>
-                      <p className="text-xs opacity-70">
+                      <h4 className="text-heading font-semibold text-sfs-gold">{post.author}</h4>
+                      <p className="text-xs text-sfs-gray">
                         {post.createdAt ? formatTimeAgo(post.createdAt) : "just now"}
                       </p>
                     </div>
                     {post.isFromBot && (
                       <div className="ml-auto">
-                        <Badge className="text-xs bg-green-600 text-white">Bot Created</Badge>
+                        <Badge className="text-xs bg-green-500/20 text-green-400 border-green-500/30">Bot Created</Badge>
                       </div>
                     )}
                   </div>
                   
-                  <p className="text-sm mb-3">{post.content}</p>
+                  <p className="text-sm mb-4 text-white leading-relaxed">{post.content}</p>
                   
                   <div className="flex items-center space-x-4 text-xs">
-                    <Button variant="ghost" size="sm" className="flex items-center space-x-1 text-brand-gold hover:text-brand-gold-light p-0 h-auto">
-                      <Heart className="h-4 w-4" />
+                    <Button variant="ghost" size="sm" className="flex items-center space-x-2 text-red-400 hover:text-red-300 p-0 h-auto transition-colors">
+                      <Heart className="h-5 w-5" />
                       <span>{post.likes || 0}</span>
                     </Button>
-                    <Button variant="ghost" size="sm" className="flex items-center space-x-1 text-brand-gold hover:text-brand-gold-light p-0 h-auto">
-                      <MessageCircle className="h-4 w-4" />
+                    <Button variant="ghost" size="sm" className="flex items-center space-x-2 text-blue-400 hover:text-blue-300 p-0 h-auto transition-colors">
+                      <MessageCircle className="h-5 w-5" />
                       <span>{post.comments || 0}</span>
                     </Button>
-                    <Button variant="ghost" size="sm" className="flex items-center space-x-1 text-brand-gold hover:text-brand-gold-light p-0 h-auto">
-                      <Share className="h-4 w-4" />
+                    <Button variant="ghost" size="sm" className="flex items-center space-x-2 text-green-400 hover:text-green-300 p-0 h-auto transition-colors">
+                      <Share className="h-5 w-5" />
                       <span>{post.shares || 0}</span>
                     </Button>
                   </div>

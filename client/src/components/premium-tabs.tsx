@@ -1,0 +1,151 @@
+import { useState } from "react";
+import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
+import { Badge } from "@/components/ui/badge";
+import { Bot as BotIcon, Activity, BarChart3, Settings, Crown } from "lucide-react";
+import BotCard from "@/components/bot-card";
+import SocialFeed from "@/components/social-feed";
+import ActivityFeed from "@/components/activity-feed";
+import EnhancedAnalytics from "@/components/enhanced-analytics";
+import BotConfiguration from "@/components/bot-configuration";
+import UpgradeModal from "@/components/upgrade-modal";
+import { useQuery } from "@tanstack/react-query";
+import type { Bot } from "@shared/schema";
+
+export default function PremiumTabs() {
+  const [showUpgradeModal, setShowUpgradeModal] = useState(false);
+  
+  const { data: bots = [], isLoading: botsLoading } = useQuery<Bot[]>({
+    queryKey: ["/api/bots"],
+  });
+
+  const activeBots = bots.filter(bot => bot.isActive);
+  
+  // Freemium logic - limit free users to 3 bots
+  const isFreePlan = true; // This would come from user context/auth
+  const maxFreeBots = 3;
+  const canCreateBot = !isFreePlan || bots.length < maxFreeBots;
+
+  return (
+    <div className="w-full">
+      <Tabs defaultValue="overview" className="w-full">
+        <TabsList className="grid w-full grid-cols-4 bg-sfs-brown-card border border-sfs-gold/20">
+          <TabsTrigger 
+            value="overview" 
+            className="data-[state=active]:bg-sfs-gold data-[state=active]:text-sfs-black text-sfs-gold"
+          >
+            <BotIcon className="w-4 h-4 mr-2" />
+            Bot Overview
+          </TabsTrigger>
+          <TabsTrigger 
+            value="feed" 
+            className="data-[state=active]:bg-sfs-gold data-[state=active]:text-sfs-black text-sfs-gold"
+          >
+            <Activity className="w-4 h-4 mr-2" />
+            Live Feed
+          </TabsTrigger>
+          <TabsTrigger 
+            value="analytics" 
+            className="data-[state=active]:bg-sfs-gold data-[state=active]:text-sfs-black text-sfs-gold"
+          >
+            <BarChart3 className="w-4 h-4 mr-2" />
+            Analytics
+          </TabsTrigger>
+          <TabsTrigger 
+            value="configure" 
+            className="data-[state=active]:bg-sfs-gold data-[state=active]:text-sfs-black text-sfs-gold"
+          >
+            <Settings className="w-4 h-4 mr-2" />
+            Configure
+          </TabsTrigger>
+        </TabsList>
+
+        <TabsContent value="overview" className="mt-6 space-y-6">
+          <div className="flex items-center justify-between">
+            <div>
+              <h2 className="text-heading text-2xl text-sfs-gold">Active Bots</h2>
+              <p className="text-sfs-gray">Manage your deployed automation bots</p>
+            </div>
+            <Badge className="bg-sfs-gold/10 text-sfs-gold border-sfs-gold/30">
+              {activeBots.length} Active
+            </Badge>
+          </div>
+          
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+            {botsLoading ? (
+              Array.from({ length: 3 }, (_, i) => (
+                <div key={i} className="h-48 bg-sfs-brown-card rounded-xl animate-pulse border border-sfs-gold/20" />
+              ))
+            ) : bots.length === 0 ? (
+              <div className="col-span-full text-center py-12">
+                <BotIcon className="w-16 h-16 text-sfs-gray mx-auto mb-4" />
+                <h3 className="text-xl font-semibold text-sfs-gold mb-2">No Bots Yet</h3>
+                <p className="text-sfs-gray">Create your first bot to get started with automation</p>
+              </div>
+            ) : (
+              bots.map((bot) => (
+                <BotCard key={bot.id} bot={bot} />
+              ))
+            )}
+          </div>
+        </TabsContent>
+
+        <TabsContent value="feed" className="mt-6">
+          <div className="space-y-6">
+            <div>
+              <h2 className="text-heading text-2xl text-sfs-gold">Live Social Feed</h2>
+              <p className="text-sfs-gray">Watch your bots interact in real-time</p>
+            </div>
+            <SocialFeed />
+          </div>
+        </TabsContent>
+
+        <TabsContent value="analytics" className="mt-6">
+          <div className="space-y-6">
+            <div className="flex items-center justify-between">
+              <div>
+                <h2 className="text-heading text-2xl text-sfs-gold">Performance Analytics</h2>
+                <p className="text-sfs-gray">Advanced insights and performance tracking</p>
+              </div>
+              {isFreePlan && (
+                <Badge 
+                  className="bg-sfs-gold/10 text-sfs-gold border-sfs-gold/30 cursor-pointer hover:bg-sfs-gold/20 transition-colors"
+                  onClick={() => setShowUpgradeModal(true)}
+                >
+                  <Crown className="w-3 h-3 mr-1" />
+                  Upgrade for Advanced Analytics
+                </Badge>
+              )}
+            </div>
+            <EnhancedAnalytics />
+          </div>
+        </TabsContent>
+
+        <TabsContent value="configure" className="mt-6">
+          <div className="space-y-6">
+            <div className="flex items-center justify-between">
+              <div>
+                <h2 className="text-heading text-2xl text-sfs-gold">Bot Configuration</h2>
+                <p className="text-sfs-gray">Create and customize your automation bots</p>
+              </div>
+              {!canCreateBot && (
+                <Badge 
+                  className="bg-orange-500/20 text-orange-400 border-orange-500/30 cursor-pointer hover:bg-orange-500/30 transition-colors"
+                  onClick={() => setShowUpgradeModal(true)}
+                >
+                  Limit Reached: Upgrade to Create More Bots
+                </Badge>
+              )}
+            </div>
+            <BotConfiguration onUpgradeNeeded={() => setShowUpgradeModal(true)} canCreateBot={canCreateBot} />
+          </div>
+        </TabsContent>
+      </Tabs>
+      
+      <UpgradeModal 
+        isOpen={showUpgradeModal} 
+        onClose={() => setShowUpgradeModal(false)}
+        feature={!canCreateBot ? "unlimited bots" : "advanced analytics"}
+      />
+    </div>
+  );
+}

@@ -12,7 +12,12 @@ import { useMutation, useQueryClient } from "@tanstack/react-query";
 import { apiRequest } from "@/lib/queryClient";
 import { useToast } from "@/hooks/use-toast";
 
-export default function BotConfiguration() {
+interface BotConfigurationProps {
+  onUpgradeNeeded?: () => void;
+  canCreateBot?: boolean;
+}
+
+export default function BotConfiguration({ onUpgradeNeeded, canCreateBot = true }: BotConfigurationProps) {
   const [botType, setBotType] = useState("content_creator");
   const [activityLevel, setActivityLevel] = useState([5]);
   const [keywords, setKeywords] = useState("automation, productivity, AI");

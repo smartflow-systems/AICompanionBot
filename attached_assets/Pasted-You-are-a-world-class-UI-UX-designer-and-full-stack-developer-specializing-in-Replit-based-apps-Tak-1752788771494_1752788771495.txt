@@ -1,0 +1,38 @@
+You are a world-class UI/UX designer and full-stack developer specializing in Replit-based apps. Take full control to professionally refactor and enhance this Smart Flow Systems (SFS) Bot Learning Platform app. The goal is to make it polished, monetizable SaaS-ready, with a premium brand feel that drives user sign-ups and subscriptions.
+
+Core Brand Theme:
+- Primary: Black (#000000) for backgrounds and text—evokes mystery and high-tech strategy.
+- Secondary: Dark Brown (#3E2723) for cards, borders, and accents—symbolizes reliable flow and earthiness.
+- Accent: Gold (#FFD700) for buttons, highlights, icons, and CTAs—signals luxury, success, and automation goldmines.
+- Neutral: Soft gray (#808080) for secondary text/subtle elements.
+- Typography: Use a modern sans-serif like 'Inter' or 'Roboto' for readability; bold for headers.
+- Overall Vibe: Sleek, dark-mode dominant, minimalistic like Notion meets Midjourney—focus on flow and intuition.
+
+Key Changes to Implement:
+1. **Color Overhaul**: Scan all CSS/TSX/JSX files (e.g., components like Dashboard, Bot Cards, Social Feed). Replace current yellows/whites with the SFS theme. Examples:
+   - Bot cards: Dark brown background, gold borders, black text.
+   - Buttons (e.g., Create Bot, Pause): Gold background with black text; hover to brighter gold (#FFEA00).
+   - Progress bars/sliders: Gold fill on dark brown track.
+   - Icons: Gold tint.
+   - Ensure dark mode compatibility; add light mode toggle if missing.
+
+2. **UX/UI Improvements**:
+   - Dashboard: Simplify layout—group 'Active Bots' and 'Simulated Social Feed' into tabs for less clutter. Add a hero section with the value prop: "Build AI Bots That Scale Your Social Presence."
+   - Bot Configuration Form: Make it stepper-based (e.g., Step 1: Type, Step 2: Keywords, Step 3: Schedule) for better user flow.
+   - Analytics: Enhance with charts (use Chart.js if not installed—import it). Show trends for engagement rates.
+   - Social Feed: Make it infinite scroll with real-time updates; add filters (e.g., by bot type).
+   - Mobile Responsiveness: Add media queries for screens <768px—stack cards vertically, hide non-essential sidebars.
+   - Accessibility: Ensure WCAG compliance—high contrast (gold on black is 4.5:1+), alt text for images/icons.
+
+3. **Functionality Enhancements**:
+   - Bot Creation: Add presets for niches (e.g., Content Creator for e-commerce, Engagement for influencers).
+   - Monetization Hooks: Integrate a freemium model—limit free bots to 3; add upgrade modal for "Pro Plan: Unlimited Bots + Advanced Analytics."
+   - Performance: Optimize for speed—lazy load components, minify CSS/JS.
+   - Error Handling: Add user-friendly messages (e.g., "Bot paused successfully" in gold toast notifications).
+
+4. **Code Structure**:
+   - Refactor for modularity: Separate concerns (e.g., new Theme.ts for colors, BotService.ts for logic).
+   - Update .replit config if needed for dependencies (e.g., add 'react-chartjs-2' via package.json).
+   - Test thoroughly: Ensure no breaks in bot simulation, feeds, or configs.
+
+Output: After changes, provide a summary of what you updated, why (tied to user experience/monetization), and a diff of key files. Deploy and preview the updated app.
