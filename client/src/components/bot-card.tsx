@@ -30,43 +30,43 @@ export default function BotCard({ bot }: BotCardProps) {
   };
 
   return (
-    <div className="glass-card-brown rounded-xl p-6 transition-all duration-300 hover:shadow-lg hover:shadow-sfs-gold/10">
+    <div className="bubble-card p-6 transition-all duration-300 hover:shadow-lg hover:shadow-sfs-gold/20">
       <div className="flex items-center justify-between mb-3">
-        <h4 className="text-heading font-semibold text-sfs-gold">{bot.name}</h4>
+        <h4 className="text-heading font-semibold text-gold-shine">{bot.name}</h4>
         <Badge 
           className={`text-xs px-3 py-1 rounded-full font-medium ${
             bot.isActive 
               ? "bg-green-500/20 text-green-400 border-green-500/30" 
-              : "bg-sfs-gray/20 text-sfs-gray border-sfs-gray/30"
+              : "bg-sfs-gray/20 text-gold-shine opacity-60 border-sfs-gray/30"
           }`}
         >
           {bot.isActive ? "Active" : "Paused"}
         </Badge>
       </div>
-      <p className="text-sm text-sfs-gray-light mb-4 leading-relaxed">{bot.description}</p>
+      <p className="text-sm text-gold-shine opacity-70 mb-4 leading-relaxed">{bot.description}</p>
       
       <div className="grid grid-cols-2 gap-4 text-sm mb-4">
         {bot.type === "content_creator" && (
           <>
             <div className="text-center">
-              <div className="text-xl font-bold text-sfs-gold">{stats.postsCount || 0}</div>
-              <div className="text-xs text-sfs-gray">Posts</div>
+              <div className="text-xl font-bold text-gold-shine">{stats.postsCount || 0}</div>
+              <div className="text-xs text-gold-shine opacity-70">Posts</div>
             </div>
             <div className="text-center">
-              <div className="text-xl font-bold text-sfs-gold">{stats.engagementRate || 0}%</div>
-              <div className="text-xs text-sfs-gray">Engagement</div>
+              <div className="text-xl font-bold text-gold-shine">{stats.engagementRate || 0}%</div>
+              <div className="text-xs text-gold-shine opacity-70">Engagement</div>
             </div>
           </>
         )}
         {bot.type === "engagement" && (
           <>
             <div className="text-center">
-              <div className="text-xl font-bold text-sfs-gold">{stats.likesCount || 0}</div>
-              <div className="text-xs text-sfs-gray">Likes</div>
+              <div className="text-xl font-bold text-gold-shine">{stats.likesCount || 0}</div>
+              <div className="text-xs text-gold-shine opacity-70">Likes</div>
             </div>
             <div className="text-center">
-              <div className="text-xl font-bold text-sfs-gold">{stats.commentsCount || 0}</div>
-              <div className="text-xs text-sfs-gray">Comments</div>
+              <div className="text-xl font-bold text-gold-shine">{stats.commentsCount || 0}</div>
+              <div className="text-xs text-gold-shine opacity-70">Comments</div>
             </div>
           </>
         )}

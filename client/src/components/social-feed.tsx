@@ -24,24 +24,24 @@ export default function SocialFeed() {
   };
 
   return (
-    <Card className="glass-card-brown border-0 h-full">
-      <CardHeader>
-        <CardTitle className="text-heading text-xl text-sfs-gold flex items-center">
+    <div className="bubble-card h-full">
+      <div className="p-6 border-b border-sfs-gold/30">
+        <div className="text-heading text-xl text-gold-shine flex items-center">
           <Newspaper className="mr-3 h-6 w-6" />
           Live Social Feed
           <div className="ml-auto">
-            <Badge className="bg-sfs-gold/20 text-sfs-gold border-sfs-gold/30 animate-pulse">
+            <Badge className="bg-sfs-gold/20 text-gold-shine border-sfs-gold/30 animate-pulse">
               Live Simulation
             </Badge>
           </div>
-        </CardTitle>
-      </CardHeader>
+        </div>
+      </div>
       
-      <CardContent>
+      <div className="p-6">
         {isLoading ? (
           <div className="space-y-4">
             {[1, 2, 3].map((i) => (
-              <div key={i} className="h-32 bg-brand-brown rounded-lg animate-pulse" />
+              <div key={i} className="h-32 bg-sfs-brown-card rounded-lg animate-pulse" />
             ))}
           </div>
         ) : (
@@ -61,8 +61,8 @@ export default function SocialFeed() {
                       }}
                     />
                     <div>
-                      <h4 className="text-heading font-semibold text-sfs-gold">{post.author}</h4>
-                      <p className="text-xs text-sfs-gray">
+                      <h4 className="text-heading font-semibold text-gold-shine">{post.author}</h4>
+                      <p className="text-xs text-gold-shine opacity-70">
                         {post.createdAt ? formatTimeAgo(post.createdAt) : "just now"}
                       </p>
                     </div>
@@ -73,7 +73,7 @@ export default function SocialFeed() {
                     )}
                   </div>
                   
-                  <p className="text-sm mb-4 text-white leading-relaxed">{post.content}</p>
+                  <p className="text-sm mb-4 text-gold-shine opacity-80 leading-relaxed">{post.content}</p>
                   
                   <div className="flex items-center space-x-4 text-xs">
                     <Button variant="ghost" size="sm" className="flex items-center space-x-2 text-red-400 hover:text-red-300 p-0 h-auto transition-colors">
@@ -95,26 +95,26 @@ export default function SocialFeed() {
                 {allComments
                   .filter(comment => comment.postId === post.id)
                   .map((comment) => (
-                    <div key={comment.id} className="bg-brand-brown-light rounded-lg p-3 border border-brand-gold ml-8 mt-2">
+                    <div key={comment.id} className="bubble-section rounded-lg p-3 ml-8 mt-2">
                       <div className="flex items-center space-x-2 mb-2">
-                        <div className="w-6 h-6 bg-brand-gold rounded-full flex items-center justify-center">
-                          <BotIcon className="text-brand-black text-xs" />
+                        <div className="w-6 h-6 bg-sfs-gold rounded-full flex items-center justify-center">
+                          <BotIcon className="text-sfs-black text-xs" />
                         </div>
-                        <span className="text-sm font-medium text-brand-gold">{comment.author}</span>
+                        <span className="text-sm font-medium text-gold-shine">{comment.author}</span>
                         <Badge className="text-xs bg-blue-600 text-white">Bot Action</Badge>
                       </div>
-                      <p className="text-sm">{comment.content}</p>
+                      <p className="text-sm text-gold-shine opacity-80">{comment.content}</p>
                     </div>
                   ))}
 
                 {/* Simulated Bot Like Action */}
                 {post.id === 2 && (
-                  <div className="bg-brand-brown-light rounded-lg p-3 border border-brand-gold ml-8 mt-2">
+                  <div className="bubble-section rounded-lg p-3 ml-8 mt-2">
                     <div className="flex items-center space-x-2">
-                      <div className="w-6 h-6 bg-brand-gold rounded-full flex items-center justify-center">
-                        <BotIcon className="text-brand-black text-xs" />
+                      <div className="w-6 h-6 bg-sfs-gold rounded-full flex items-center justify-center">
+                        <BotIcon className="text-sfs-black text-xs" />
                       </div>
-                      <span className="text-sm text-brand-gold">Content Creator Bot liked this post</span>
+                      <span className="text-sm text-gold-shine">Content Creator Bot liked this post</span>
                       <Badge className="text-xs bg-red-600 text-white">Bot Action</Badge>
                     </div>
                   </div>
@@ -123,7 +123,7 @@ export default function SocialFeed() {
             ))}
           </div>
         )}
-      </CardContent>
-    </Card>
+      </div>
+    </div>
   );
 }

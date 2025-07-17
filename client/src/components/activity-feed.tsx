@@ -36,33 +36,33 @@ export default function ActivityFeed() {
   };
 
   return (
-    <Card className="bg-dark-surface border-brand-gold-dark">
-      <CardHeader>
-        <CardTitle className="text-lg font-semibold text-brand-gold flex items-center">
+    <div className="bubble-card">
+      <div className="p-6 border-b border-sfs-gold/30">
+        <div className="text-lg font-semibold text-gold-shine flex items-center">
           <Activity className="mr-2 h-5 w-5" />
           Recent Activity
-        </CardTitle>
-      </CardHeader>
+        </div>
+      </div>
       
-      <CardContent>
+      <div className="p-6">
         {isLoading ? (
           <div className="space-y-3">
             {[1, 2, 3, 4].map((i) => (
-              <div key={i} className="h-6 bg-brand-brown rounded animate-pulse" />
+              <div key={i} className="h-6 bg-sfs-brown-card rounded animate-pulse" />
             ))}
           </div>
         ) : (
           <div className="space-y-3 max-h-40 overflow-y-auto">
             {activities.length === 0 ? (
-              <p className="text-sm text-brand-gold/70 text-center py-4">
+              <p className="text-sm text-gold-shine opacity-70 text-center py-4">
                 No recent activity
               </p>
             ) : (
               activities.map((activity) => (
                 <div key={activity.id} className="flex items-center space-x-3 text-sm">
                   <div className={`w-2 h-2 rounded-full ${getActivityColor(activity.type)}`}></div>
-                  <span className="flex-1 text-brand-gold">{activity.description}</span>
-                  <span className="text-xs opacity-70">
+                  <span className="flex-1 text-gold-shine">{activity.description}</span>
+                  <span className="text-xs text-gold-shine opacity-70">
                     {activity.createdAt ? formatTimeAgo(activity.createdAt) : "now"}
                   </span>
                 </div>
@@ -70,7 +70,7 @@ export default function ActivityFeed() {
             )}
           </div>
         )}
-      </CardContent>
+      </div>
     </Card>
   );
 }
