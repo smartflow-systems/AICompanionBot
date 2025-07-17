@@ -4,10 +4,10 @@ import { ThemeToggle } from "@/components/theme-toggle";
 
 const navigationItems = [
   { href: "/", icon: Home, label: "Dashboard" },
-  { href: "/create", icon: Plus, label: "Create Bot" },
-  { href: "/bots", icon: BotIcon, label: "My Bots" },
+  { href: "/create-bot", icon: Plus, label: "Create Bot" },
+  { href: "/my-bots", icon: BotIcon, label: "My Bots" },
   { href: "/analytics", icon: BarChart3, label: "Analytics" },
-  { href: "/feed", icon: Newspaper, label: "Social Feed" },
+  { href: "/social-feed", icon: Newspaper, label: "Social Feed" },
   { href: "/settings", icon: Settings, label: "Settings" },
 ];
 

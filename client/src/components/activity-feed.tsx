@@ -71,6 +71,6 @@ export default function ActivityFeed() {
           </div>
         )}
       </div>
-    </Card>
+    </div>
   );
 }
