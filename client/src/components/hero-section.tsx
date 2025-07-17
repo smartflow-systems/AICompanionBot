@@ -12,18 +12,18 @@ export default function HeroSection() {
       <div className="relative px-6 py-12 max-w-6xl mx-auto">
         <div className="text-center space-y-6">
           {/* Badge */}
-          <Badge className="bg-sfs-gold/10 text-sfs-gold border-sfs-gold/30 text-sm font-medium px-4 py-2">
+          <Badge className="bg-sfs-gold/10 text-gold-shine border-sfs-gold/30 text-sm font-medium px-4 py-2">
             <Sparkles className="w-4 h-4 mr-2" />
             Premium Bot Learning Platform
           </Badge>
           
           {/* Main heading */}
           <div className="space-y-4">
-            <h1 className="text-display text-4xl md:text-6xl lg:text-7xl text-sfs-gold">
+            <h1 className="text-display text-4xl md:text-6xl lg:text-7xl text-gold-shine">
               Build AI Bots That
-              <span className="block text-white">Scale Your Social Presence</span>
+              <span className="block text-gold-shine">Scale Your Social Presence</span>
             </h1>
-            <p className="text-xl md:text-2xl text-sfs-gray-light max-w-3xl mx-auto leading-relaxed">
+            <p className="text-xl md:text-2xl text-gold-shine opacity-80 max-w-3xl mx-auto leading-relaxed">
               Master social media automation with our interactive simulation platform. 
               Create, deploy, and optimize intelligent bots that drive real engagement.
             </p>
@@ -43,20 +43,20 @@ export default function HeroSection() {
           
           {/* Stats */}
           <div className="grid grid-cols-1 sm:grid-cols-3 gap-8 pt-12 mt-12 border-t border-sfs-gold/20">
-            <div className="text-center">
-              <div className="text-3xl font-bold text-sfs-gold">10,000+</div>
-              <div className="text-sfs-gray">Bots Deployed</div>
+            <div className="bubble-section text-center p-4">
+              <div className="text-3xl font-bold text-gold-shine">10,000+</div>
+              <div className="text-gold-shine opacity-70">Bots Deployed</div>
             </div>
-            <div className="text-center">
-              <div className="text-3xl font-bold text-sfs-gold">95%</div>
-              <div className="text-sfs-gray">Success Rate</div>
+            <div className="bubble-section text-center p-4">
+              <div className="text-3xl font-bold text-gold-shine">95%</div>
+              <div className="text-gold-shine opacity-70">Success Rate</div>
             </div>
-            <div className="text-center">
-              <div className="flex items-center justify-center gap-1 text-3xl font-bold text-sfs-gold">
+            <div className="bubble-section text-center p-4">
+              <div className="flex items-center justify-center gap-1 text-3xl font-bold text-gold-shine">
                 <TrendingUp className="w-8 h-8" />
                 300%
               </div>
-              <div className="text-sfs-gray">Avg. Engagement Boost</div>
+              <div className="text-gold-shine opacity-70">Avg. Engagement Boost</div>
             </div>
           </div>
         </div>

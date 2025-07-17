@@ -63,16 +63,16 @@
   
   /* Smart Flow Systems Premium Brand Colors - Dark Mode */
   --sfs-black: hsl(0, 0%, 0%);
-  --sfs-brown: hsl(20, 14.3%, 4.1%);
-  --sfs-brown-light: hsl(20, 14.3%, 8%);
-  --sfs-brown-card: hsl(20, 14.3%, 6%);
-  --sfs-gold: hsl(51, 100%, 50%);
-  --sfs-gold-bright: hsl(51, 100%, 60%);
-  --sfs-gold-dark: hsl(45, 100%, 35%);
-  --sfs-gray: hsl(0, 0%, 50.2%);
-  --sfs-gray-light: hsl(0, 0%, 60%);
-  --sfs-surface: hsl(0, 0%, 2%);
-  --sfs-surface-elevated: hsl(20, 14.3%, 3%);
+  --sfs-brown: hsl(20, 14.3%, 12%); /* Darker brown for bubbles */
+  --sfs-brown-light: hsl(20, 14.3%, 15%);
+  --sfs-brown-card: hsl(20, 14.3%, 10%);
+  --sfs-gold: hsl(45, 100%, 60%); /* Brighter shining gold */
+  --sfs-gold-bright: hsl(45, 100%, 70%); /* Extra bright for hover */
+  --sfs-gold-dark: hsl(45, 100%, 50%);
+  --sfs-gray: hsl(45, 30%, 60%); /* Warm gold-tinted gray */
+  --sfs-gray-light: hsl(45, 20%, 70%);
+  --sfs-surface: hsl(20, 20%, 8%); /* Dark brown surface */
+  --sfs-surface-elevated: hsl(20, 15%, 10%);
 }
 
 .dark {
@@ -116,7 +116,7 @@
   }
   
   .dark body {
-    background-color: hsl(var(--sfs-black));
+    background-color: #2D1B0F; /* Very dark brown */
     color: hsl(var(--sfs-gold));
   }
   
@@ -220,30 +220,49 @@
     border-color: hsl(var(--sfs-gold));
   }
   
-  /* Premium Glass Effects */
-  .glass-card {
-    background: rgba(255, 215, 0, 0.05);
-    backdrop-filter: blur(10px);
-    border: 1px solid rgba(255, 215, 0, 0.2);
+  /* Premium Bubble Effects - Dark Brown with Gold */
+  .glass-card, .bubble-section {
+    background: rgba(45, 27, 15, 0.9); /* Dark brown bubble */
+    backdrop-filter: blur(15px);
+    border: 2px solid rgba(255, 215, 0, 0.6); /* Shining gold border */
+    border-radius: 20px; /* More rounded for bubble effect */
+    box-shadow: 
+      0 8px 32px rgba(0, 0, 0, 0.3),
+      0 0 20px rgba(255, 215, 0, 0.2),
+      inset 0 1px 0 rgba(255, 215, 0, 0.3); /* Gold inner glow */
   }
   
-  .glass-card-brown {
-    background: rgba(62, 39, 35, 0.3);
-    backdrop-filter: blur(10px);
-    border: 1px solid rgba(255, 215, 0, 0.3);
+  .glass-card-brown, .bubble-card {
+    background: rgba(45, 27, 15, 0.95); /* Slightly more opaque */
+    backdrop-filter: blur(15px);
+    border: 2px solid rgba(255, 215, 0, 0.8); /* Brighter gold border */
+    border-radius: 24px;
+    box-shadow: 
+      0 12px 48px rgba(0, 0, 0, 0.4),
+      0 0 30px rgba(255, 215, 0, 0.3),
+      inset 0 2px 0 rgba(255, 215, 0, 0.4);
+  }
+  
+  /* Shining gold text effect */
+  .text-gold-shine, .text-sfs-gold {
+    color: #FFD700;
+    text-shadow: 
+      0 0 10px rgba(255, 215, 0, 0.6),
+      0 0 20px rgba(255, 215, 0, 0.4),
+      0 0 30px rgba(255, 215, 0, 0.2);
   }
   
   /* Light mode glass effects */
-  :not(.dark) .glass-card {
-    background: rgba(245, 245, 245, 0.8);
-    backdrop-filter: blur(10px);
-    border: 1px solid rgba(200, 200, 200, 0.3);
+  :not(.dark) .glass-card, :not(.dark) .bubble-section {
+    background: rgba(250, 245, 240, 0.95);
+    border: 2px solid rgba(139, 69, 19, 0.4);
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
   }
   
-  :not(.dark) .glass-card-brown {
-    background: rgba(250, 245, 240, 0.9);
-    backdrop-filter: blur(10px);
-    border: 1px solid rgba(139, 69, 19, 0.2);
+  :not(.dark) .glass-card-brown, :not(.dark) .bubble-card {
+    background: rgba(255, 250, 245, 0.98);
+    border: 2px solid rgba(139, 69, 19, 0.6);
+    box-shadow: 0 12px 48px rgba(0, 0, 0, 0.15);
   }
   
   /* Animation utilities */

@@ -26,33 +26,33 @@ export default function PremiumTabs() {
   const canCreateBot = !isFreePlan || bots.length < maxFreeBots;
 
   return (
-    <div className="w-full">
+    <div className="w-full bubble-section p-6">
       <Tabs defaultValue="overview" className="w-full">
-        <TabsList className="grid w-full grid-cols-4 bg-sfs-brown-card border border-sfs-gold/20">
+        <TabsList className="grid w-full grid-cols-4 bg-sfs-brown-card border border-sfs-gold/30 bubble-section">
           <TabsTrigger 
             value="overview" 
-            className="data-[state=active]:bg-sfs-gold data-[state=active]:text-sfs-black text-sfs-gold"
+            className="data-[state=active]:bg-sfs-gold data-[state=active]:text-sfs-black text-gold-shine"
           >
             <BotIcon className="w-4 h-4 mr-2" />
             Bot Overview
           </TabsTrigger>
           <TabsTrigger 
             value="feed" 
-            className="data-[state=active]:bg-sfs-gold data-[state=active]:text-sfs-black text-sfs-gold"
+            className="data-[state=active]:bg-sfs-gold data-[state=active]:text-sfs-black text-gold-shine"
           >
             <Activity className="w-4 h-4 mr-2" />
             Live Feed
           </TabsTrigger>
           <TabsTrigger 
             value="analytics" 
-            className="data-[state=active]:bg-sfs-gold data-[state=active]:text-sfs-black text-sfs-gold"
+            className="data-[state=active]:bg-sfs-gold data-[state=active]:text-sfs-black text-gold-shine"
           >
             <BarChart3 className="w-4 h-4 mr-2" />
             Analytics
           </TabsTrigger>
           <TabsTrigger 
             value="configure" 
-            className="data-[state=active]:bg-sfs-gold data-[state=active]:text-sfs-black text-sfs-gold"
+            className="data-[state=active]:bg-sfs-gold data-[state=active]:text-sfs-black text-gold-shine"
           >
             <Settings className="w-4 h-4 mr-2" />
             Configure
@@ -62,10 +62,10 @@ export default function PremiumTabs() {
         <TabsContent value="overview" className="mt-6 space-y-6">
           <div className="flex items-center justify-between">
             <div>
-              <h2 className="text-heading text-2xl text-sfs-gold">Active Bots</h2>
-              <p className="text-sfs-gray">Manage your deployed automation bots</p>
+              <h2 className="text-heading text-2xl text-gold-shine">Active Bots</h2>
+              <p className="text-gold-shine opacity-70">Manage your deployed automation bots</p>
             </div>
-            <Badge className="bg-sfs-gold/10 text-sfs-gold border-sfs-gold/30">
+            <Badge className="bg-sfs-gold/10 text-gold-shine border-sfs-gold/30">
               {activeBots.length} Active
             </Badge>
           </div>
