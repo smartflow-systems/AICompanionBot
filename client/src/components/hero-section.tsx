@@ -1,6 +1,7 @@
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
 import { Sparkles, Zap, Target, TrendingUp } from "lucide-react";
+import { Link } from "wouter";
 
 export default function HeroSection() {
   return (
@@ -31,14 +32,18 @@ export default function HeroSection() {
           
           {/* CTA buttons */}
           <div className="flex flex-col sm:flex-row gap-4 justify-center items-center pt-4">
-            <Button size="lg" className="bg-sfs-gold text-sfs-black hover:bg-sfs-gold-bright font-semibold px-8 py-4 text-lg animate-glow">
-              <Zap className="w-5 h-5 mr-2" />
-              Start Building Bots
-            </Button>
-            <Button variant="outline" size="lg" className="border-sfs-gold text-sfs-gold hover:bg-sfs-gold/10 px-8 py-4 text-lg">
-              <Target className="w-5 h-5 mr-2" />
-              View Demo
-            </Button>
+            <Link href="/create-bot">
+              <Button size="lg" className="bg-sfs-gold text-sfs-black hover:bg-sfs-gold-bright font-semibold px-8 py-4 text-lg animate-glow">
+                <Zap className="w-5 h-5 mr-2" />
+                Start Building Bots
+              </Button>
+            </Link>
+            <Link href="/social-feed">
+              <Button variant="outline" size="lg" className="border-sfs-gold text-sfs-gold hover:bg-sfs-gold/10 px-8 py-4 text-lg">
+                <Target className="w-5 h-5 mr-2" />
+                View Demo
+              </Button>
+            </Link>
           </div>
           
           {/* Stats */}
