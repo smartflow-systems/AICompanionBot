@@ -1,5 +1,6 @@
 import { Link, useLocation } from "wouter";
 import { Bot as BotIcon, Home, Plus, BarChart3, Newspaper, Settings, User, ChevronRight } from "lucide-react";
+import { ThemeToggle } from "@/components/theme-toggle";
 
 const navigationItems = [
   { href: "/", icon: Home, label: "Dashboard" },
@@ -21,10 +22,11 @@ export default function Sidebar() {
           <div className="w-10 h-10 bg-sfs-gold rounded-xl flex items-center justify-center animate-glow">
             <BotIcon className="text-sfs-black text-xl" />
           </div>
-          <div>
+          <div className="flex-1">
             <h1 className="text-display text-lg text-sfs-gold">Smart Flow Systems</h1>
             <p className="text-xs text-sfs-gray">Premium Bot Platform</p>
           </div>
+          <ThemeToggle />
         </div>
       </div>
 
